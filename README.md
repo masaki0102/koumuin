@@ -1,24 +1,56 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column      | Type   | Options                   |
+| ----------- | ------ | ------------------------- |
+| name        | string | null: false               |
+| email       | string | null: false, unique: true |
+| password    | string | null: false               |
+| birth_date  | date   | null: false               |
 
-* System dependencies
+### Association
+- has_many :likes
 
-* Configuration
 
-* Database creation
+## governments テーブル
 
-* Database initialization
+| Column      | Type   | Options                   |
+| ----------- | ------ | ------------------------- |
+| name        | string | null: false               |
+| email       | string | null: false, unique: true |
+| password    | string | null: false               |
 
-* How to run the test suite
+### Association
+- has_many :exams
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+## exams テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| governments | references | null: false, foreign_key: true |
+| category_id | integer    | null: false                    |
+| date        | date       | null: false                    |
+| age         | integer    | null: false                    |
+
+
+### Association
+- belongs_to :government
+- has_many :likes
+
+
+
+## likes テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| exam   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :exam
