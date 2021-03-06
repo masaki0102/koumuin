@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'governments/index'
-  root to:  'governments#index'
+  root to:  'exams#index'
   devise_for :governments, controllers: {
     sessions:      'governments/sessions',
     passwords:     'governments/passwords',
