@@ -28,17 +28,15 @@
             <div class="nav__right">
               <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: :nav__logout %>
             </div>
+           <% elsif government_signed_in? %>
+            <div class="nav__right">
+              <%= link_to "ログアウト", destroy_government_session_path,method: :delete, class: :nav__logout %>
+            </div>
           <% else %>
           <div class="nav__right"> 
               <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
             </div>
-        <% end %>
-            <% if government_signed_in? %>
-            <div class="nav__right">
-              <%= link_to "ログアウト", destroy_government_session_path,method: :delete, class: :nav__logout %>
-            </div>
-          <% else %>
             <div class="nav__right">
               <%= link_to "ログイン", new_government_session_path, class: :nav__btn %>
               <%= link_to "新規登録", new_government_registration_path, class: :nav__btn %>
