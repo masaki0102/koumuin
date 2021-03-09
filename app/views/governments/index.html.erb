@@ -1,0 +1,10 @@
+<% @governments.each do |government| %>
+  <div class="governments">
+    <div class="gorvenment-name">
+      <%= link_to government.name,government_path(government.id) %>
+    </div>
+    <div class="gorvenment-image">
+      <%= image_tag government.image.variant(resize: '500x500'), class: 'message-image' if government.image.attached? %>
+    </div>
+  </div>
+<% end %>
