@@ -1,7 +1,5 @@
 class ExamsController < ApplicationController
-  def index
-    @exams = Exam.all
-  end
+  
 
   def new
     @exam = Exam.new
@@ -15,6 +13,7 @@ class ExamsController < ApplicationController
       render :new
     end
   end
+
 
   private
 

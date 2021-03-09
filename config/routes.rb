@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to:  'exams#index'
+  root to:  'governments#index'
   devise_for :governments, controllers: {
     sessions:      'governments/sessions',
     passwords:     'governments/passwords',
@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :exams
+  resources :governments
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
