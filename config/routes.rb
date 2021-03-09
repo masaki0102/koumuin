@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+  resources :exams
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

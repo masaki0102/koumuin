@@ -37,7 +37,7 @@ a {
 /* ヘッダー */
 
 .header {
-  background-color: #f1f8fe;
+  background-color: #b3424a;
   margin-bottom: 48px;
   padding: 20px 0;
 
@@ -58,23 +58,23 @@ a {
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #fdc7a3fd;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #fdc7a3fd solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
 .nav__btn:hover{
   color: #fff;
-  background: #87CEFA;
+  background: #fdc7a3fd;
 }
 
 .nav__logout{
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #fdc7a3fd;
   text-decoration: none;
   user-select: none;
 }
