@@ -12,6 +12,27 @@ class ExamsController < ApplicationController
     end
   end
 
+  def edit
+    @exam = Exam.find(params[:id])
+    redirect_to :root unless @exam.government_id == current_government.id
+  end
+
+  def update
+    @exam = Exam.find(params[:id])
+    if @exam.update(exam_params)
+      redirect_to :root
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @exam = Exam.find(params[:id])
+    redirect_to :root unless @exam.government_id == current_government.id
+    @exam.destroy
+    redirect_to :root
+  end
+
   private
 
   def exam_params
