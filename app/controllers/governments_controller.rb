@@ -7,5 +7,4 @@ class GovernmentsController < ApplicationController
     @government = Government.find(params[:id])
     @exams = @government.exams
   end
-
 end
