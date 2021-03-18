@@ -15,32 +15,33 @@
       <div class="inner">
         <div class="nav">
           <div class="nav__left">
-            <%= link_to "公務員試験net", root_path %>
+            <%= link_to "公務員試験net", root_path, class: :logo %>
           </div>
           <%# ログインしているときは以下を表示するようにしましょう %>
            <% if user_signed_in?  %>
             <div class="nav__right">
-              <%= current_user.name %>
               <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: :nav__logout %>
             </div>
            <% elsif government_signed_in? %>
             <div class="nav__right">
               <%= current_government.name %>
-              <%= link_to "ログアウト", destroy_government_session_path,method: :delete, class: :nav__logout %>
               <%= link_to "試験情報登録", new_exam_path, class: :nav__btn %>
+              <%= link_to "ログアウト", destroy_government_session_path,method: :delete, class: :nav__logout %>              
             </div>
             <%# // ログインしているときは上記を表示するようにしましょう %>
             <%# ログインしていないときは以下を表示するようにしましょう %>
           <% else %>
-          <div class="nav__right"> 
+            <div class="nav__right"> 
+              <p>受験生の方</p>
               <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
             </div>
             <div class="nav__right">
+             <p>自治体の方</p>
               <%= link_to "ログイン", new_government_session_path, class: :nav__btn %>
               <%= link_to "新規登録", new_government_registration_path, class: :nav__btn %>
             </div>
-            <% end %>
+          <% end %>
           <%# // ログインしていないときは上記を表示するようにしましょう %>
         </div>
       </div>

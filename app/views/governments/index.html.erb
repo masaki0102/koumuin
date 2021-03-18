@@ -1,10 +1,22 @@
-<% @governments.each do |government| %>
-  <div class="governments">
-    <div class="gorvenment-name">
+<main class="main">
+  <div class="inner">
+    <% if user_signed_in? %>
+      <div class="greeting">
+        <%= "こんにちは、" %>
+        <%= link_to "#{current_user.name}さん", class: :greeting__link %>
+      </div>
+    <% end %>
+      <div class="governments">
+  <% @governments.each do |government| %>
+<div class="government">
+    <div class="government__name">
       <%= link_to government.name,government_path(government.id) %>
     </div>
-    <div class="gorvenment-image">
-      <%= image_tag government.image.variant(resize: '500x500'), class: 'message-image' if government.image.attached? %>
+    <div class="government__img">
+      <%= image_tag government.image.variant(resize: '300x300'), class: 'message-image' if government.image.attached? %>
     </div>
-  </div>
+ </div>
 <% end %>
+  </div>
+
+</main>
