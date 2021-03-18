@@ -3,6 +3,7 @@ class Exam < ApplicationRecord
   belongs_to :category
   belongs_to :government
 
-  validates :date, :age, presence: true
+  validates :date, presence: true
+  validates :age, presence: true
   validates :category_id, numericality: { other_than: 1 }
 end
