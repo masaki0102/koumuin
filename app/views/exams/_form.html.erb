@@ -1,7 +1,8 @@
 <%= form_with(model:exam,local:true) do |f|%>
   
   <div class="field">
-   <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
+   <%= f.label :category_id, "職種" %><br />
+   <%= f.collection_select(:category_id, Category.all, :id, :name, {}) %>
   </div>
 
   <div class="field">
