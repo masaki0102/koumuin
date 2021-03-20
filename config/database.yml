@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: koumuin_production
-  username: koumuin
-  password: <%= ENV['KOUMUIN_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
