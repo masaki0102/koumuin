@@ -2,6 +2,7 @@ class Exam < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :government
+  has_many   :likes
 
   validates :date, presence: true
   validates :age, presence: true

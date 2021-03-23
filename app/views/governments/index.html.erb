@@ -6,6 +6,17 @@
         <%= link_to "#{current_user.name}さん", class: :greeting__link %>
       </div>
     <% end %>
+<div class="search">
+<h1>
+  <%# 商品検索 %>
+<%# </h1> %>
+<%# <%= search_form_for @p, url: exams_search_path do |f| %>
+  <%# <%= f.label :name_eq, '商品名' %>
+  <%# <%= f.collection_select :name_eq, @exams, :name, :name,  include_blank: '指定なし' %>
+  <%# <br> %>
+  <%# <%= f.submit '検索' %>
+<%# <% end %>
+</div>
       <div class="governments">
   <% @governments.each do |government| %>
 <div class="government">
