@@ -1,9 +1,7 @@
 class ExamsController < ApplicationController
-  before_action :search_exam, only: [:index,:search]
+  before_action :search_exam, only: [:search]
 
-  def index
-    @exams= Exam.all
-  end
+
 
   def new
     @exam = Exam.new

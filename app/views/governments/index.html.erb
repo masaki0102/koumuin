@@ -6,6 +6,24 @@
         <%= link_to "#{current_user.name}さん", class: :greeting__link %>
       </div>
     <% end %>
+   <div class = "search">
+    <h1>
+      試験検索
+    </h1>
+    <%= search_form_for @p, url: exams_search_path do |f| %>
+      <%= f.label :category_id_eq, '希望職種' %>
+      <%= f.collection_select :category_id_eq, Category.all, :id, :name,  include_blank: '指定なし' %>
+      <br>
+      <%= f.label :age_gteq, '年齢' %>
+      <% if user_signed_in? %>
+      <%= f.search_field :age_gteq, value: "#{@age}"  %> 
+      <% else %>
+      <%= f.search_field :age_gteq %>
+      <% end %>
+      <br>
+      <%= f.submit '検索' %>
+    <% end %>
+   </div>
 
       <div class="governments">
   <% @governments.each do |government| %>
