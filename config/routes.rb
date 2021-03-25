@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  resources :exams do
+  resources :exams,except: [:show] do
     resources :likes, only: [:create, :destroy]
   end
   get 'exams/search'
