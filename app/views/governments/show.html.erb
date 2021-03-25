@@ -15,7 +15,7 @@
               <%= "年齢制限:#{exam.age}" %>
             </li>
             <%# いいね %>
-            <div id="like-<%= exam.id %>">
+            <div class="exam__like" >
               <%= render 'likes/like', { exam: exam} %>
             </div>
              <%# 編集・削除 %>
