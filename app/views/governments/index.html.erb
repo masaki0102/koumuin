@@ -6,10 +6,9 @@
         <%= link_to "#{current_user.name}さん", class: :greeting__link %>
       </div>
     <% end %>
+
    <div class = "search">
-    <h1>
-      試験検索
-    </h1>
+    <h2>試験検索</h2>
     <%= search_form_for @p, url: exams_search_path do |f| %>
       <%= f.label :category_id_eq, '希望職種' %>
       <%= f.collection_select :category_id_eq, Category.all, :id, :name,  include_blank: '指定なし' %>
@@ -27,15 +26,16 @@
 
       <div class="governments">
   <% @governments.each do |government| %>
-<div class="government">
-    <div class="government__name">
-      <%= link_to government.name,government_path(government.id) %>
-    </div>
-    <div class="government__img">
+    <div class="government">
+      <a href="/governments/<%= government.id %>">
+      <div class="government__name">
+        <%= government.name %>
+      </div>
+      <div class="government__img">
       <%= image_tag government.image.variant(resize: '300x300'), class: 'message-image' if government.image.attached? %>
-    </div>
- </div>
-<% end %>
+      </div>
+   </div>
+  <% end %>
   </div>
 
 </main>
