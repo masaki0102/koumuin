@@ -1,19 +1,29 @@
-<h1>
+<div class="inner">
+<h2 class="page-heading">
   検索結果
-</h1>
+</h2>
+<div class="contents"> 
 <%# 検索結果の個数で条件分岐 %>
 <% if @results.length !=0 %>
   <% @results.each do |result| %>
-    <td>
-    <br>
-    <li>
+    <div class="content">
+    <li class="list">
       <%= result.government.name %>
+    </li>
+    <li class="list">
       <%= result.category.name %>
+    </li>
+    <li class="list">
       <%= result.age %>
-    </li> 
+    </li>
+    </div> 
     <%# リンクして試験詳細に飛べるようにする %>
 
   <% end %>
 <% else %>
+<div class="content">
   該当する試験はありません
+</div>
 <% end %>
+</div>
+</div>

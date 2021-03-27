@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :exams,except: [:show] do
     resources :likes, only: [:create, :destroy]
   end
+
+  resources :governments, only: [:index, :show]
   get 'exams/search'
-  resources :governments
+  get 'likes/show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

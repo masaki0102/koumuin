@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   </head>
 
   <body>
@@ -18,9 +18,10 @@
           <div class="nav__left">
             <%= link_to "公務員試験net", root_path, class: :logo %>
           </div>
-          <%# ログインしているときは以下を表示するようにしましょう %>
+          <%# ログインしているとき表示 %>
            <% if user_signed_in?  %>
             <div class="nav__right">
+             <%= link_to "いいねした試験", likes_show_path, class: :nav__btn %>
               <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: :nav__logout %>
             </div>
            <% elsif government_signed_in? %>
@@ -29,8 +30,7 @@
               <%= link_to "試験情報登録", new_exam_path, class: :nav__btn %>
               <%= link_to "ログアウト", destroy_government_session_path,method: :delete, class: :nav__logout %>              
             </div>
-            <%# // ログインしているときは上記を表示するようにしましょう %>
-            <%# ログインしていないときは以下を表示するようにしましょう %>
+            <%# ログインしていないとき表示 %>
           <% else %>
             <div class="nav__right"> 
               <p>受験生の方</p>
@@ -43,7 +43,6 @@
               <%= link_to "新規登録", new_government_registration_path, class: :nav__btn %>
             </div>
           <% end %>
-          <%# // ログインしていないときは上記を表示するようにしましょう %>
         </div>
       </div>
     </header>
