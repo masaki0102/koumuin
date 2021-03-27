@@ -1,9 +1,9 @@
   <div class="inner">
    <h2 class="page-heading"><%= " #{@government.name}の試験情報" %></h2>
-     <div class="contents"> 
+     <div class="exams"> 
      <% if @exams.exists? %>
        <% @exams.each do|exam| %>
-          <div class="content">
+          <div class="exam">
             <li class="list">
               <%= "募集職種:#{exam.category.name}" %>
             </li>
@@ -18,7 +18,7 @@
               <%= render 'likes/like', { exam: exam} %>
             </li>
              <%# 編集・削除 %>
-            <div class="exam__manage">
+            <div class="manage">
             <% if exam.government  == current_government %>
                <%= link_to "編集する", edit_exam_path(exam.id) %>
                <%= link_to "削除する", exam_path(exam),method: :delete%>

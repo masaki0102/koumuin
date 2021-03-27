@@ -2,23 +2,17 @@
       <h2 class="page-heading">
         <%= " #{current_user.name}さんがいいねした試験" %>
         </h2 >
-   <div class="contents"> 
+   <div class="exams"> 
      <% if @likes.exists? %>
        <% @likes.each do|like| %>
-          <div class="content">
-            <li class="list">
+          <div class="exam">
               <%= "募集職種:#{like.exam.category.name}" %>
-            </li>
-            <li class="list">
               <%= "日程:#{like.exam.date}"%>
-            </li>
-            <li class="list">
               <%= "年齢制限:#{like.exam.age}" %>
-            </li>
           </div>
         <% end %>
       <% else %> 
-      <div class="content">
+      <div class="exam">
         まだいいねした試験はありません。 
       </div>
        <% end %> 

@@ -13,7 +13,6 @@ p,
 div {
   margin: 0;
   padding: 0;
-  display: block;
 }
 
 body {
@@ -165,25 +164,23 @@ a {
   margin-bottom: 28px;
 }
 
-.exam__contents{
+.contents{
   padding-top: 16px;
 }
 
-.exam__content{
+.content{
   display: flex;
   font-size: 20px;
   margin-bottom: 40px;
 }
 
-.exam__list{
-  display: inline;
+.list{
   margin-right: 20px;
 
 }
 
-.exam__manage{
+.manage{
   display: flex;
-  justify-content: center;
 }
 
 

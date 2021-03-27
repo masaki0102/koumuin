@@ -32,7 +32,7 @@
         <%= government.name %>
       </div>
       <div class="government__img">
-      <%= image_tag government.image.variant(resize: '300x300'), class: 'message-image' if government.image.attached? %>
+      <%= image_tag government.image.variant(resize: '300x300') if government.image.attached? %>
       </div>
    </div>
   <% end %>
