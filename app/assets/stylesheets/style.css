@@ -19,10 +19,10 @@ body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
   color: #3b4043;
 }
-
+/* 
 li {
   list-style: none;
-}
+} */
 
 img {
   max-width: 100%;
@@ -129,10 +129,7 @@ a {
 .greeting__link{
   text-decoration: underline;
 }
-.page-heading {
-  font-size: 30px;
-  margin-bottom: 28px;
-}
+
 .governments {
   display: flex;
   flex-wrap: wrap;
@@ -162,6 +159,11 @@ a {
 }
 
 /* 共通（試験一覧ページ、いいね一覧ページ、検索結果ページ） */
+.page-heading {
+  font-size: 30px;
+  margin-bottom: 28px;
+}
+
 .contents{
   padding-top: 16px;
 }
@@ -207,13 +209,10 @@ a {
   .page-heading {
     font-size: 24px;
   }
-  .card {
-    width: 48%;
-    margin-bottom: 40px;
-  }
-  .prototype_image{
-    width: 60%;
-  }
+.government {
+  width: calc((100% - 50px)/2);
+  margin-bottom: 40px;
+ }
 }
 
  /* スマホ表示 */
@@ -224,20 +223,9 @@ a {
   .page-heading {
     font-size: 20px;
   }
-  .card {
-    width: 100%;
-    margin-bottom: 60px;
-  }
-  .card__title {
-    font-size: 18px;
-  }
-  .card__summary {
-    font-size: 14px;
-  }
-  .prototype_image{
-    width: 100%;
-  }
-  .table{
-    width: 100%;
+
+  .government {
+    width: calc(100% - 50px);
+    margin-bottom: 40px;
   }
 }
