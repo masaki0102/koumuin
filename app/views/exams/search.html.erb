@@ -5,15 +5,15 @@
 <% if @results.length !=0 %>
   <% @results.each do |result| %>
     <div class="exam">
-    <li class="list">
+    <div class="exam__list">
       <%= result.government.name %>
-    </li >
-    <li class="list">
+     </div> 
+    <div class="exam__list">
       <%= result.category.name %>
-    </li >
-    <li class="list">
+     </div> 
+   <div class="exam__list">
       <%= result.age %>
-    </li >
+    </div> 
     </div> 
     <%# リンクして試験詳細に飛べるようにする %>
 
