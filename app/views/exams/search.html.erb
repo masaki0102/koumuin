@@ -1,11 +1,11 @@
 <div class = "main">
 <div class = "inner">
 <h2 class="page-heading">検索結果</h2>
-<div class="contents"> 
+<div class="exam__contents"> 
 <%# 検索結果の個数で条件分岐 %>
 <% if @results.length !=0 %>
   <% @results.each do |result| %>
-    <div class="content">
+    <div class="exam__content">
     <li class="exam__list">
       <%= result.government.name %>
     </li >
