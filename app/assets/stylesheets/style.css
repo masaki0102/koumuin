@@ -174,12 +174,12 @@ a {
   margin-bottom: 40px;
 }
 
-.list{
+.exam__list{
   margin-right: 20px;
 
 }
 
-.manage{
+.exam__manage{
   display: flex;
 }
 
