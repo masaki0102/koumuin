@@ -175,6 +175,7 @@ a {
 }
 
 .exam__list{
+  display: inline;
   margin-right: 20px;
 
 }
