@@ -6,9 +6,15 @@
      <% if @likes.exists? %>
        <% @likes.each do|like| %>
           <div class="exam">
+              <div class="exam__list">
               <%= "募集職種:#{like.exam.category.name}" %>
+              </div>
+              <div class="exam__list">
               <%= "日程:#{like.exam.date}"%>
+              </div>
+              <div class="exam__list">
               <%= "年齢制限:#{like.exam.age}" %>
+              </div>
           </div>
         <% end %>
       <% else %> 
