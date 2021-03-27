@@ -5,9 +5,9 @@ class GovernmentsController < ApplicationController
     @governments = Government.all
     @exams = Exam.all
     if user_signed_in?
-      date_format = "%Y%m%d"
+      date_format = '%Y%m%d'
       now_date = Date.today
-      @age = (now_date.strftime(date_format).to_i - current_user.birth_date.strftime(date_format).to_i )/ 10000
+      @age = (now_date.strftime(date_format).to_i - current_user.birth_date.strftime(date_format).to_i) / 10_000
     end
   end
 

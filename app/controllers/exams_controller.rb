@@ -1,7 +1,7 @@
 class ExamsController < ApplicationController
   before_action :search_exam, only: [:search]
-
-
+  before_action :set_exam, only: [:edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :destroy]
 
   def new
     @exam = Exam.new
@@ -17,12 +17,9 @@ class ExamsController < ApplicationController
   end
 
   def edit
-    @exam = Exam.find(params[:id])
-    redirect_to :root unless @exam.government_id == current_government.id
   end
 
   def update
-    @exam = Exam.find(params[:id])
     if @exam.update(exam_params)
       redirect_to :root
     else
@@ -31,12 +28,9 @@ class ExamsController < ApplicationController
   end
 
   def destroy
-    @exam = Exam.find(params[:id])
-    redirect_to :root unless @exam.government_id == current_government.id
     @exam.destroy
     redirect_to :root
   end
-
 
   def search
     @results = @p.result.includes(:government)
@@ -50,5 +44,13 @@ class ExamsController < ApplicationController
 
   def search_exam
     @p = Exam.ransack(params[:q])  # 検索オブジェクトを生成
+  end
+
+  def set_exam
+    @exam = Exam.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to :root unless @exam.government_id == current_government.id
   end
 end

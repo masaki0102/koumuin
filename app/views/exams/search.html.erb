@@ -6,13 +6,13 @@
   <% @results.each do |result| %>
     <div class="exam">
     <div class="exam__list">
-      <%= result.government.name %>
+      <%= "自治体:#{result.government.name}" %>
      </div> 
     <div class="exam__list">
-      <%= result.category.name %>
+      <%= "募集職種:#{result.category.name}" %>
      </div> 
    <div class="exam__list">
-      <%= result.age %>
+      <%= "年齢制限:#{result.age}" %>
     </div> 
     </div> 
     <%# リンクして試験詳細に飛べるようにする %>

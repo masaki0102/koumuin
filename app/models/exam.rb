@@ -6,6 +6,5 @@ class Exam < ApplicationRecord
 
   belongs_to :category
   belongs_to :government
-  has_many   :likes
-  
+  has_many   :likes, dependent: :destroy
 end

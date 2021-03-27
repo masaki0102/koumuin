@@ -6,5 +6,5 @@ class Government < ApplicationRecord
   validates :name, presence: true
   validates :image, presence: true
   has_one_attached :image
-  has_many :exams
+  has_many :exams, dependent: :destroy
 end
