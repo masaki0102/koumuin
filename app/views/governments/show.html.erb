@@ -1,24 +1,24 @@
-<div class="main">
   <div class="inner">
       <h2 class="page-heading">
         <%= " #{@government.name}の試験情報" %>
-     <div class="exams"> 
+      </h2>
+     <div class="contents"> 
      <% if @exams.exists? %>
        <% @exams.each do|exam| %>
-          <div class="exam">
-            <li class="exam__list">
+          <div class="content">
+            <li class="list">
               <%= "募集職種:#{exam.category.name}" %>
             </li>
-            <li class="exam__list">
+            <li class="list">
               <%= "日程:#{exam.date}"%>
             </li>
-            <li class="exam__list">
+            <li class="list">
               <%= "年齢制限:#{exam.age}" %>
             </li>
             <%# いいね %>
-            <div class="exam__like" >
+            <li class="list">
               <%= render 'likes/like', { exam: exam} %>
-            </div>
+            </li>
              <%# 編集・削除 %>
             <div class="exam__manage">
             <% if exam.government  == current_government %>
@@ -34,4 +34,3 @@
       <% end %>
      </div>
   </div>
-</div>

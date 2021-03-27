@@ -121,7 +121,7 @@ a {
   cursor: pointer;
 }
 
-/* メイン（自治体一覧ページ） */
+/* 自治体一覧ページ */
 
 .greeting{
   margin-bottom: 20px;
@@ -161,19 +161,18 @@ a {
   width: 100%;
 }
 
-
-/* 自治体詳細ページ */
-.exams{
+/* 共通（試験一覧ページ、いいね一覧ページ、検索結果ページ） */
+.contents{
   padding-top: 16px;
 }
 
-.exam{
+.content{
   display: flex;
   font-size: 20px;
   margin-bottom: 40px;
 }
 
-.exam__list{
+.list{
   margin-right: 20px;
 
 }
@@ -184,7 +183,6 @@ a {
 }
 
 
-/* いいね一覧ページ */
 
 
 

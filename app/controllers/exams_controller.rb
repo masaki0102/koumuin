@@ -39,7 +39,7 @@ class ExamsController < ApplicationController
 
 
   def search
-    @results = @p.result
+    @results = @p.result.includes(:government)
   end
 
   private
