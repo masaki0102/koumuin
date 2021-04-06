@@ -1,4 +1,5 @@
 class ExamsController < ApplicationController
+  before_action :authenticate_government!, except: [:index, :show]
   before_action :search_exam, only: [:search]
   before_action :set_exam, only: [:edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :destroy]
