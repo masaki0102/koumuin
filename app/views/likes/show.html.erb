@@ -8,6 +8,9 @@
        <% @likes.each do|like| %>
           <div class="exam">
               <div class="exam__list">
+              <%= "#{like.exam.government.name}" %>
+              </div>
+              <div class="exam__list">
               <%= "募集職種:#{like.exam.category.name}" %>
               </div>
               <div class="exam__list">
