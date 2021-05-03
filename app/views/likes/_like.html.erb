@@ -5,9 +5,9 @@
       <%= exam.likes.count %>
     <% end %>
   <% else %>
-  <%=link_to exam_likes_path(exam), {method: "post"} do %>
-    <i class="far fa-star"></i>
-    <%= exam.likes.count %>
+    <%=link_to exam_likes_path(exam), {method: "post"} do %>
+      <i class="far fa-star"></i>
+      <%= exam.likes.count %>
     <% end %>
   <% end %>
 <% else %>

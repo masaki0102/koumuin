@@ -1,0 +1,29 @@
+    <% if user_signed_in? %>
+      <div class="greeting">
+        <%= "こんにちは、" %>
+        <%= link_to "#{current_user.name}さん", class: :greeting__link %>
+      </div>
+    <% end %>
+
+   <div class = "search">
+    <h3>条件から探す</h3>
+    <%= search_form_for @p, url: exams_search_path do |f| %>
+      <%= f.label :category_id_eq, '職種' %>
+      <%= f.collection_select :category_id_eq, Category.all, :id, :name,  include_blank: '指定なし' %>
+      <br>
+      <%= f.label :age_gteq, '年齢' %>
+      <% if user_signed_in? %>
+      <%= f.search_field :age_gteq, value: "#{@age}"  %> 
+      <% else %>
+      <%= f.search_field :age_gteq %>
+      <% end %>
+      <br>
+      <%= f.submit '検索' %>
+    <% end %>
+  </div>
+ 
+  <div class = "area">
+    <h3>エリア・都道府県から探す</h3>
+    <%= link_to "全てのエリア", governments_path %>
+    <%= render partial:"area" %>
+  </div>
