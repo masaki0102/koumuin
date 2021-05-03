@@ -1,36 +1,37 @@
-  <div class="inner">
-   <h2 class="page-heading"><%= " #{@government.name}の試験情報" %></h2>
-     <div class="exams"> 
-     <% if @exams.exists? %>
-       <% @exams.each do|exam| %>
-          <div class="exam">
+<h2 class="page-heading"><%= " #{@government.name}が募集している職種" %></h2>
+<div>
+  <%= image_tag @government.image.variant(gravity: :center, resize:"300x200^", crop:"300x200+0+0") if @government.image.attached? %>
+</div>
+<div class="exams"> 
+  <% if @exams.exists? %>
+    <div class="exam">
+      <% @exams.each do|exam| %>
+          <a href="/exams/<%= exam.id %>">
+          <div class ="exam__info">
             <div class="exam__list">
               <%= "募集職種:#{exam.category.name}" %>
             </div>
             <div class="exam__list">
               <%= "日程:#{exam.date}"%>
             </div>
-            <div class="exam__list">
-              <%= "年齢制限:#{exam.age}" %>
-            </div>
-            <%# いいね %>
-            <div class="exam__list">
-              <%= render 'likes/like', { exam: exam} %>
-            </div>
-             <%# 編集・削除 %>
-            <div class="exam__manage">
-            <% if exam.government  == current_government %>
-               <%= link_to "編集する", edit_exam_path(exam.id) %>
-               <%= link_to "削除する", exam_path(exam),method: :delete%>
-            <% end %>
-            </div>
           </div>
-
-        <% end %>
-      <% else %>
-      <div class="exam">
-       現在募集中の職種はありません 
-      </div>
+          </a>
+          <%# いいね %>
+          <div class="exam__info">
+            <%= render 'likes/like', { exam: exam} %>
+          </div>
+          <%# 編集・削除 %>
+          <% if exam.government  == current_government %>
+            <div class="exam__manage">
+              <%= link_to "編集する", edit_exam_path(exam.id) %>
+              <%= link_to "削除する", exam_path(exam),method: :delete%>
+            </div>
+          <% end %>
       <% end %>
-     </div>
-  </div>
+    </div>
+  <% else %>
+    <div class="exam" style="border:none;">
+       現在募集中の職種はありません 
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,44 @@
+<div class = "info">
+  <table class="table table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th  scope="col" colspan="6">試験情報</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope ="row">自治体</th>
+        <td><%= @exam.government.name %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">職種</th>
+        <td><%= @exam.category.name %></td>
+        <td colspan="4"></td>
+      </tr>
+      <tr>
+        <th scope="row">日程</th>
+        <td><%= @exam.date %></td>
+        <td colspan="4"></td>
+      </tr>
+      <tr>
+        <th scope="row">年齢制限</th>
+        <td><%= @exam.age %></td>
+        <td colspan="4"></td>
+      </tr>
+      <tr>
+        <th scope="row">定員</th>
+        <td>50名</td>
+        <td colspan="4"></td>
+      </tr>
+      <tr>
+        <th scope="row">選考フロー</th>
+        <td>筆記試験→面接(2回)</td>
+        <td colspan="4"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

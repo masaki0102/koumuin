@@ -1,30 +1,42 @@
-  
-<div class="inner">
-      <h2 class="page-heading">
-        <%= " #{current_user.name}さんがいいねした試験" %>
-        </h2 >
-   <div class="exams"> 
-     <% if @likes.exists? %>
-       <% @likes.each do|like| %>
-          <div class="exam">
-              <div class="exam__list">
+<h2 class="page-heading">
+  <%= " #{current_user.name}さんがお気に入り登録している試験" %>
+</h2 >
+<div class="exams"> 
+  <% if @likes.exists? %>
+    <% @likes.each do|like| %>
+        <div class="exam">
+          <a href="/exams/<%= like.exam.id %>">
+          <div class ="exam__info">
+            <div class="exam__list government__img">
+            <%= image_tag like.exam.government.image.variant(gravity: :center, resize:"150x100^", crop:"150x100+0+0") if like.exam.government.image.attached? %>
+            </div>
+            <div class="exam__list">
               <%= "#{like.exam.government.name}" %>
-              </div>
-              <div class="exam__list">
+            </div>
+            <div class="exam__list">
               <%= "募集職種:#{like.exam.category.name}" %>
-              </div>
-              <div class="exam__list">
+            </div>
+            <div class="exam__list">
               <%= "日程:#{like.exam.date}"%>
-              </div>
-              <div class="exam__list">
-              <%= "年齢制限:#{like.exam.age}" %>
-              </div>
-          </div>
-        <% end %>
-      <% else %> 
-      <div class="exam">
-        まだいいねした試験はありません。 
+            </div>
+        </div>
+        </a>
+        <div class="exam__info">
+          <%= render 'likes/like', { exam: like.exam} %>
+        </div>
       </div>
-       <% end %> 
-     </div>
+    <% end %>
+  <% else %> 
+    <div class="exam" style="border:none;">
+      まだいいねした試験はありません。 
+    </div>
+  <% end %> 
+    <script language="JavaScript">
+    <!--
+            //タイマーをセット
+    function tm(){
+        tm = setInterval("location.reload()",1000);
+    }
+    //-->
+    </script>
 </div>

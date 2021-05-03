@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to:  'governments#index'
+  root to:  'exams#index'
   devise_for :governments, controllers: {
     sessions:      'governments/sessions',
     passwords:     'governments/passwords',
@@ -10,12 +10,12 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  resources :exams,except: [:show] do
+  get 'exams/search'
+  resources :exams do
     resources :likes, only: [:create, :destroy]
   end
-
   resources :governments, only: [:index, :show]
-  get 'exams/search'
-  get 'likes/show'
+  resources :likes, only: [:show]
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

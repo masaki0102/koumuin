@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
     <title>公務員試験net</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header class="header">
-      <div class="inner">
+      <div class="container">
         <div class="nav">
           <div class="nav__left">
             <%= link_to "公務員試験net", root_path, class: :logo %>
           </div>
           <%# ログインしているとき表示 %>
+          <p>
+          公務員試験受験生のためのWebメディア
+          </p>
            <% if user_signed_in?  %>
             <div class="nav__right">
-             <%= link_to "いいねした試験", likes_show_path, class: :nav__btn %>
+             <%= link_to "気になる", like_path(current_user), class: :nav__btn %>
               <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: :nav__logout %>
             </div>
            <% elsif government_signed_in? %>
@@ -46,11 +51,16 @@
         </div>
       </div>
     </header>
+    
+    <div class ="container">
     <%= yield %>
-
+    </div>
     
     <footer class="footer">
+     <div class="container">
       <p class="copyright">Copyright © KOUMUIN SHIKEN NET All rights reserved.</p>
+    </div>
     </footer>
+
   </body>
 </html>

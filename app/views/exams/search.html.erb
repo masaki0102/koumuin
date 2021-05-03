@@ -1,27 +1,34 @@
-<div class = "inner">
 <h2 class="page-heading">検索結果</h2>
 <div class="exams"> 
 <%# 検索結果の個数で条件分岐 %>
-<% if @results.length !=0 %>
-  <% @results.each do |result| %>
-    <div class="exam">
-    <div class="exam__list">
-      <%= "自治体:#{result.government.name}" %>
-     </div> 
-    <div class="exam__list">
-      <%= "募集職種:#{result.category.name}" %>
-     </div> 
-   <div class="exam__list">
-      <%= "年齢制限:#{result.age}" %>
-    </div> 
-    </div> 
-    <%# リンクして試験詳細に飛べるようにする %>
-
+  <% if @exams.length !=0 %>
+    <% @exams.each do |exam| %>
+      <div class="exam">
+      <%# リンクして試験詳細に飛べるようにする %>
+        <a href="/exams/<%= exam.id %>">
+        <div class="exam__info">
+          <div class="exam__list government__img">
+            <%= image_tag exam.government.image.variant(gravity: :center, resize:"150x100^", crop:"150x100+0+0") if exam.government.image.attached? %>
+          </div>
+          <div class="exam__list">
+            <%= "自治体:#{exam.government.name}" %>
+          </div> 
+          <div class="exam__list">
+            <%= "募集職種:#{exam.category.name}" %>
+          </div> 
+          <div class="exam__list">
+            <%= "日程:#{exam.date}" %>
+          </div> 
+        </div>
+        </a>
+        <div class="exam__list">
+          <%= render 'likes/like', { exam: exam} %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="exam" style="border:none;" >
+      該当する試験はありません
+    </div>
   <% end %>
-<% else %>
-<div class="exam">
-  該当する試験はありません
-</div>
-<% end %>
-</div>
 </div>
