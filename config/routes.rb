@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   }
   get 'exams/search'
   resources :exams do
-    resources :likes, only: [:create, :destroy]
+    # resources :likes, only: [:create, :destroy]
+    get 'likes', to: 'likes#checked'
   end
   resources :governments, only: [:index, :show]
   resources :likes, only: [:show]

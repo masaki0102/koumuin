@@ -3,7 +3,7 @@
 <%# 検索結果の個数で条件分岐 %>
   <% if @exams.length !=0 %>
     <% @exams.each do |exam| %>
-      <div class="exam">
+      <div class="exam" >
       <%# リンクして試験詳細に飛べるようにする %>
         <a href="/exams/<%= exam.id %>">
         <div class="exam__info">

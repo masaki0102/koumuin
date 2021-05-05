@@ -1,15 +1,15 @@
 <%if user_signed_in? %>
   <% if Like.find_by(user_id: current_user.id, exam_id: exam.id) %>
-    <%=link_to exam_like_path(exam, exam.likes), {method: "delete"} do %>
-      <i class="fas fa-star"  style="color:gold" ></i>
+    <%# <%=link_to exam_like_path(exam, exam.likes), {method: "delete"}  do %> 
+      <i class="fas fa-star"  style="color:gold" data-id=<%= exam.id %> ></i>
       <%= exam.likes.count %>
-    <% end %>
+    <%# <% end %> 
   <% else %>
-    <%=link_to exam_likes_path(exam), {method: "post"} do %>
-      <i class="far fa-star"></i>
+    <%# <%=link_to exam_likes_path(exam), {method: "post"}  do %> 
+      <i class="fas fa-star"  data-id=<%= exam.id %>></i>
       <%= exam.likes.count %>
-    <% end %>
+  <%# <% end %> 
   <% end %>
 <% else %>
-  <i class="far fa-star"></i><%= exam.likes.count %>
+  <i class="fas fa-star" ></i><%= exam.likes.count %>
 <% end %>
