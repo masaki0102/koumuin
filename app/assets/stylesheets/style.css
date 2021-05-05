@@ -243,6 +243,7 @@ a:hover{
     width: calc((100% - 50px)/2);
     margin-bottom: 40px;
   }
+
 }
 
  /* スマホ表示 */
@@ -265,5 +266,8 @@ a:hover{
   .government {
     width: calc(100% - 50px);
     margin-bottom: 40px;
+  }
+  .exam__info{
+    display:block
   }
 }
