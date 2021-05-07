@@ -6,22 +6,24 @@
       <div class="exam" >
       <%# リンクして試験詳細に飛べるようにする %>
         <a href="/exams/<%= exam.id %>">
-        <div class="exam__info">
-          <div class="exam__list government__img">
+        <div class="exam__inner">
+          <div class="exam__info government__img">
             <%= image_tag exam.government.image.variant(gravity: :center, resize:"150x100^", crop:"150x100+0+0") if exam.government.image.attached? %>
           </div>
-          <div class="exam__list">
-            <%= "自治体:#{exam.government.name}" %>
-          </div> 
-          <div class="exam__list">
-            <%= "募集職種:#{exam.category.name}" %>
-          </div> 
-          <div class="exam__list">
-            <%= "日程:#{exam.date}" %>
-          </div> 
+          <div class ="exam__info">
+            <div class="exam__list">
+              <%= "自治体:#{exam.government.name}" %>
+            </div> 
+            <div class="exam__list">
+              <%= "募集職種:#{exam.category.name}" %>
+            </div> 
+            <div class="exam__list">
+              <%= "日程:#{exam.date}" %>
+            </div>
+          </div>
         </div>
         </a>
-        <div class="exam__list">
+        <div class="exam__like">
           <%= render 'likes/like', { exam: exam} %>
         </div>
       </div>

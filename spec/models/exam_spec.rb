@@ -14,7 +14,7 @@ RSpec.describe Exam, type: :model do
       it 'category_idが未選択では登録できない' do
         @exam.category_id = 1
         @exam.valid?
-        expect(@exam.errors.full_messages).to include("Category must be other than 1")
+        expect(@exam.errors.full_messages).to include('Category must be other than 1')
       end
       it 'dateが空では登録できない' do
         @exam.date = nil
@@ -29,7 +29,7 @@ RSpec.describe Exam, type: :model do
       it 'governmentとアソシエーションがないと登録できない' do
         @exam.government = nil
         @exam.valid?
-        expect(@exam.errors.full_messages).to include("Government must exist")
+        expect(@exam.errors.full_messages).to include('Government must exist')
       end
     end
   end

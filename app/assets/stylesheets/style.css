@@ -29,40 +29,34 @@ img {
   vertical-align: bottom;
 }
 
-a {
-  text-decoration: none;
-  color: #3b4043;
-}
-a:hover{
-  text-decoration: none;
-}
-
 /* ヘッダー */
-
 .header {
   background-color: #b3424a;
-  margin-bottom: 24px;
-  padding: 40px 0;
-
+  margin-bottom: 20px;
+  padding: 35px 0;
 }
 
 .nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.logo {
+.logo{
   color: #fff;
+  font-weight: bold;
 } 
 
+
 .logo:hover{
-  color:  #fff;
+  color: #fff;
 }
 
 .header p{
   color:  rgba(255, 255, 255, 0.651);
 }
+
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
@@ -74,8 +68,6 @@ a:hover{
   border-radius: 3px;
   transition: 0.4s ease;
 }
-
-
 
 .nav__btn:hover{
   color: #fff;
@@ -90,11 +82,38 @@ a:hover{
   text-decoration: none;
   user-select: none;
 }
+
 .nav__logout:hover{
   opacity: 0.5;
+  color: #b19b8cfd;
 }
 
-/* フォーム周り */
+
+/* トップページ */
+.greeting{
+  margin-bottom: 20px;
+}
+
+.term,
+.area{
+  margin-bottom: 20px;
+}
+
+.search{
+  font-size: 22px;
+}
+
+.greeting a,
+.area a {
+  color: #3b4043;
+}
+
+.greeting a:hover,
+.area a:hover{
+  color: #3b4043;
+}
+
+/* 登録フォーム */
 .form__wrapper{
   min-height: calc(100vh - 161px);
 }
@@ -132,14 +151,6 @@ a:hover{
 }
 
 /* 自治体一覧ページ */
-
-.greeting{
-  margin-bottom: 20px;
-}
-.greeting__link{
-  text-decoration: underline;
-}
-
 .governments {
   display: flex;
   flex-wrap: wrap;
@@ -147,31 +158,31 @@ a:hover{
   margin: 0 auto;
 }
 
-.government {
+.government  {
   width: calc((100% - 50px) / 3);
   margin-bottom: 40px;
 }
 
+.government a:hover{
+  text-decoration: none;
+}
+
 .government__name {
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 8px;
   font-weight: bold;
+  color: #3b4043;
+} 
+
+.government__name:hover,
+.government__img:hover{
+  opacity: 0.5; 
 }
 
-/*div要素全体にリンクをつけるために必要な要素*/
-.government a {
-  height:100%;
-  width: 100%;
-
-}
-.government__img:hover {
-  opacity: 0.5;
-}
-
-/* 共通（試験一覧ページ、いいね一覧ページ、検索結果ページ） */
+/* 試験一覧ページ、いいね一覧ページ、検索結果ページ*/
 .page-heading {
   font-size: 30px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .exams{
@@ -185,32 +196,39 @@ a:hover{
   border: 1px solid rgb(70, 32, 32);
   border-radius: 5px;
   margin-bottom: 40px;
-  justify-content: space-between;
 }
-
 
 .exam a:hover{
   text-decoration: none;
+  opacity: 0.5;
+}
+
+.exam__inner,
+.exam__like,
+.exam__manage{
+  display: flex;
+  align-items: center;
 }
 
 .exam__info{
   display: flex;
+  align-items: center;
+  margin-right: 20px;
+  color: #3b4043;
  }
 
 .exam__list{
   margin-right: 20px;
 }
 
+/* 試験詳細 */
 .info{
   text-align: center;
   border:1px solid #ccc; 
   border-radius: 5px;
 }
 
-
-
 /* フッター */
-
 .footer {
   background-color: #999;
   padding: 10px 0;
@@ -224,10 +242,6 @@ a:hover{
 
 /* タブレット対応 */
 @media (max-width: 1024px) {
-  .inner {
-    width: 90%;
-    margin: 0 auto;
-  }
   .page-heading {
     font-size: 24px;
   }
@@ -243,16 +257,14 @@ a:hover{
     width: calc((100% - 50px)/2);
     margin-bottom: 40px;
   }
-
+ 
+  .exam__info {
+    display: block;
+   }
 }
 
  /* スマホ表示 */
 @media (max-width: 599px) {
-  .logo {
-    width: 120px;
-  }
-
-  
   .page-heading {
     font-size: 20px;
   }
@@ -267,7 +279,12 @@ a:hover{
     width: calc(100% - 50px);
     margin-bottom: 40px;
   }
-  .exam__info{
-    display:block
+
+  .exam__inner {
+    display: block;
+  }
+
+  .exam__info {
+    display: block
   }
 }
