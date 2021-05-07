@@ -18,6 +18,9 @@ div {
 body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
   color: #3b4043;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 30px;
 }
 
 li {
@@ -34,6 +37,7 @@ img {
   background-color: #b3424a;
   margin-bottom: 20px;
   padding: 35px 0;
+  
 }
 
 .nav {
@@ -96,7 +100,7 @@ img {
 
 .term,
 .area{
-  margin-bottom: 20px;
+  margin: 20px auto;
 }
 
 .search{
@@ -230,14 +234,18 @@ img {
 
 /* フッター */
 .footer {
+  width: 100%;
   background-color: #999;
   padding: 10px 0;
+  position: absolute;
+  bottom: 0;
 }
 
 .copyright {
   text-align: center;
   color: #fff;
   font-size: 10px;
+ 
 }
 
 /* タブレット対応 */
@@ -279,12 +287,20 @@ img {
     width: calc(100% - 50px);
     margin-bottom: 40px;
   }
-
-  .exam__inner {
+  .exam {
+    justify-content: space-around;
+  }
+  
+  .exam__inner{
     display: block;
   }
 
   .exam__info {
     display: block
   }
+
+  .exam__manage{
+    display: block;
+  }
+
 }
