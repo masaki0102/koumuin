@@ -6,7 +6,6 @@
   <% if @exams.exists? %>
     <% @exams.each do|exam| %>
       <div class="exam">
-        <div class ="exam__inner">
           <a href="/exams/<%= exam.id %>">          
           <div class ="exam__info">
             <div class="exam__list">
@@ -27,7 +26,6 @@
             </div>
           </div>
           <% end %> 
-        </div>
         <div class="exam__like">
           <%= render 'likes/like', { exam: exam} %>
         </div>
