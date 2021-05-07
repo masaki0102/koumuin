@@ -1,9 +1,12 @@
+    <div class="greeting">
     <% if user_signed_in? %>
-      <div class="greeting">
         <%= "こんにちは、" %>
         <%= link_to "#{current_user.name}さん",like_path(current_user) %>
-      </div>
+    <% elsif government_signed_in? %>
+        <%= link_to "#{current_government.name}",government_path(current_government) %>
+        <%= "でログインしています" %>
     <% end %>
+    </div>
 
    <div class = "term">
     <h2  class="search">条件から探す</h2>

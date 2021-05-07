@@ -28,7 +28,6 @@
             </div>
            <% elsif government_signed_in? %>
             <div class="nav__right">
-              <%= current_government.name %>
               <%= link_to "試験情報登録", new_exam_path, class: :nav__btn %>
               <%= link_to "ログアウト", destroy_government_session_path,method: :delete, class: :nav__logout %>              
             </div>
