@@ -1,12 +1,12 @@
     <% if user_signed_in? %>
       <div class="greeting">
         <%= "こんにちは、" %>
-        <%= link_to "#{current_user.name}さん", class: :greeting__link %>
+        <%= link_to "#{current_user.name}さん",like_path(current_user) %>
       </div>
     <% end %>
 
-   <div class = "search">
-    <h3>条件から探す</h3>
+   <div class = "term">
+    <h2  class="search">条件から探す</h2>
     <%= search_form_for @p, url: exams_search_path do |f| %>
       <%= f.label :category_id_eq, '職種' %>
       <%= f.collection_select :category_id_eq, Category.all, :id, :name,  include_blank: '指定なし' %>
@@ -15,7 +15,7 @@
       <% if user_signed_in? %>
       <%= f.search_field :age_gteq, value: "#{@age}"  %> 
       <% else %>
-      <%= f.search_field :age_gteq %>
+      <%= f.search_field :age_gteq, placeholder: "ログインで自動入力" %>
       <% end %>
       <br>
       <%= f.submit '検索' %>
@@ -23,6 +23,6 @@
   </div>
  
   <div class = "area">
-    <h3>自治体から探す</h3>
+    <h2  class="search">自治体から探す</h2>
     <%= link_to "全ての自治体", governments_path %>
   </div>

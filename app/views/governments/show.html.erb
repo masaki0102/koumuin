@@ -4,9 +4,10 @@
 </div>
 <div class="exams"> 
   <% if @exams.exists? %>
-    <div class="exam">
-      <% @exams.each do|exam| %>
-          <a href="/exams/<%= exam.id %>">
+    <% @exams.each do|exam| %>
+      <div class="exam">
+        <div class ="exam__inner">
+          <a href="/exams/<%= exam.id %>">          
           <div class ="exam__info">
             <div class="exam__list">
               <%= "募集職種:#{exam.category.name}" %>
@@ -16,19 +17,22 @@
             </div>
           </div>
           </a>
-          <%# いいね %>
-          <div class="exam__info">
-            <%= render 'likes/like', { exam: exam} %>
-          </div>
-          <%# 編集・削除 %>
           <% if exam.government  == current_government %>
-            <div class="exam__manage">
-              <%= link_to "編集する", edit_exam_path(exam.id) %>
-              <%= link_to "削除する", exam_path(exam),method: :delete%>
+          <div class="exam__manage">
+            <div class="exam__list">
+              <%= link_to "編集", edit_exam_path(exam.id) %>
             </div>
-          <% end %>
-      <% end %>
-    </div>
+            <div class="exam__list">
+              <%= link_to "削除", exam_path(exam),method: :delete%>
+            </div>
+          </div>
+          <% end %> 
+        </div>
+        <div class="exam__like">
+          <%= render 'likes/like', { exam: exam} %>
+        </div>
+      </div>
+    <% end %>
   <% else %>
     <div class="exam" style="border:none;">
        現在募集中の職種はありません 

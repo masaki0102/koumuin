@@ -1,12 +1,17 @@
 class ExamsController < ApplicationController
   before_action :authenticate_government!, except: [:index, :show, :search]
-  before_action :set_exam, only: [:show,:edit, :update, :destroy]
+  before_action :set_exam, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :destroy]
-  before_action :search_exam, only: [:index,:search]
+  before_action :search_exam, only: [:index, :search]
 
   def index
+    if user_signed_in?
+      date_format = "%Y%m%d"
+      now_date = Date.today
+      @age = (now_date.strftime(date_format).to_i - current_user.birth_date.strftime(date_format).to_i )/ 10000
+    end
   end
-  
+
   def show
   end
 
@@ -22,7 +27,6 @@ class ExamsController < ApplicationController
       render :new
     end
   end
-
 
   def edit
   end
@@ -43,8 +47,6 @@ class ExamsController < ApplicationController
   def search
     @exams = @p.result.includes(:government)
   end
-
-
 
   private
 

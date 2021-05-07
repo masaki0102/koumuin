@@ -4,12 +4,13 @@
 <div class="exams"> 
   <% if @likes.exists? %>
     <% @likes.each do|like| %>
-        <div class="exam">
-          <a href="/exams/<%= like.exam.id %>">
-          <div class ="exam__info">
-            <div class="exam__list government__img">
-            <%= image_tag like.exam.government.image.variant(gravity: :center, resize:"150x100^", crop:"150x100+0+0") if like.exam.government.image.attached? %>
-            </div>
+      <div class="exam">
+        <a href="/exams/<%= like.exam.id %>">
+        <div class ="exam__inner">
+          <div class="exam__info government__img">
+          <%= image_tag like.exam.government.image.variant(gravity: :center, resize:"150x100^", crop:"150x100+0+0") if like.exam.government.image.attached? %>
+          </div>
+          <div class="exam__info">
             <div class="exam__list">
               <%= "#{like.exam.government.name}" %>
             </div>
@@ -19,9 +20,10 @@
             <div class="exam__list">
               <%= "日程:#{like.exam.date}"%>
             </div>
+          </div>
         </div>
         </a>
-        <div class="exam__info">
+        <div class="exam__like">
           <%= render 'likes/like', { exam: like.exam} %>
         </div>
       </div>

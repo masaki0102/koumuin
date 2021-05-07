@@ -35,7 +35,7 @@ RSpec.describe Government, type: :model do
         @government.password = '12345'
         @government.password_confirmation = '12345'
         @government.valid?
-        expect(@government.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+        expect(@government.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'password_confirmationがpasswordと不一致では登録できない' do
         @government.password = '123456'

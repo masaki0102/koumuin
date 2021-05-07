@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :set_exam, only: [:create, :destroy,:checked]
+  before_action :set_exam, only: [:create, :destroy, :checked]
   before_action :move_to_index, only: [:show]
 
   # def create
@@ -12,7 +12,7 @@ class LikesController < ApplicationController
   # end
 
   def checked
-    if like  =Like.find_by(exam_id: @exam.id, user_id: current_user.id)
+    if like = Like.find_by(exam_id: @exam.id, user_id: current_user.id)
       like.destroy
     else
       like = current_user.likes.new(exam_id: @exam.id)
@@ -22,7 +22,6 @@ class LikesController < ApplicationController
     item = Like.find_by(exam_id: @exam.id, user_id: current_user.id)
     render json: { like: item }
   end
-
 
   def show
     @likes = Like.where(user_id: current_user.id).includes(:exam)
