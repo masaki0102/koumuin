@@ -6,7 +6,7 @@ class GovernmentsController < ApplicationController
 
   def show
     @government = Government.find(params[:id])
-    @exams = @government.exams
+    @exams = @government.exams.order("created_at DESC")
   end
 
 end

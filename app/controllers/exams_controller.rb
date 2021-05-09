@@ -45,7 +45,7 @@ class ExamsController < ApplicationController
   end
 
   def search
-    @exams = @p.result.includes(:government)
+    @exams = @p.result.includes(:government).order("created_at DESC")
   end
 
   private
