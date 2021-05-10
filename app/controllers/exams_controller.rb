@@ -48,16 +48,6 @@ class ExamsController < ApplicationController
     @exams = @p.result.includes(:government).order("created_at DESC")
   end
 
-  def guest_sign_in
-    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
-      user.name = "ゲスト"
-      user.birth_date ="1999-04-02"
-    end
-    sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
-  end
-
   private
 
   def exam_params
