@@ -10,11 +10,15 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+
   get 'exams/search'
-  post 'exams/guest_sign_in', to: 'exams#guest_sign_in'
   resources :exams do
     get 'likes', to: 'likes#checked'
   end
+  
   resources :governments, only: [:index, :show]
   resources :likes, only: [:show]
   
