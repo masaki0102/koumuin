@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   get 'exams/search'
+  post 'exams/guest_sign_in', to: 'exams#guest_sign_in'
   resources :exams do
     get 'likes', to: 'likes#checked'
   end
