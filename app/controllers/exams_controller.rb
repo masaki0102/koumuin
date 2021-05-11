@@ -1,8 +1,8 @@
 class ExamsController < ApplicationController
-  before_action :authenticate_government!, except: [:index, :show, :search]
+  before_action :authenticate_government!, except: [:index, :show, :search_result]
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :destroy]
-  before_action :search_exam, only: [:index, :search]
+  before_action :search_exam, only: [:index, :search_result]
 
   def index
     if user_signed_in?
@@ -44,7 +44,7 @@ class ExamsController < ApplicationController
     redirect_to :root
   end
 
-  def search
+  def search_result
     @exams = @p.result.includes(:government).order("created_at DESC")
   end
 

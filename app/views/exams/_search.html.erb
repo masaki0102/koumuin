@@ -1,0 +1,17 @@
+<%= search_form_for @p, url:  exams_search_result_path do |f| %>
+  <%= f.label :date_gteq, '日程' %>
+  <%= f.date_field :date_gteq %> ~
+  <%= f.date_field :date_lteq_end_of_day %> 
+  <br>
+  <%= f.label :category_id_eq, '職種' %>
+  <%= f.collection_select :category_id_eq, Category.all, :id, :name,  include_blank: '指定なし' %>
+  <br>
+  <%= f.label :age_gteq, '年齢' %>
+  <% if user_signed_in? %>
+  <%= f.search_field :age_gteq, value: "#{@age}"  %> 
+  <% else %>
+  <%= f.search_field :age_gteq, placeholder: "ログインで自動入力" %>
+  <% end %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>

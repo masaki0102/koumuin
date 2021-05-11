@@ -1,31 +1,19 @@
-    <div class="greeting">
-    <% if user_signed_in? %>
-        <%= "こんにちは、" %>
-        <%= link_to "#{current_user.name}さん",like_path(current_user) %>
-    <% elsif government_signed_in? %>
-        <%= link_to "#{current_government.name}",government_path(current_government) %>
-        <%= "でログインしています" %>
-    <% end %>
-    </div>
+<div class="greeting">
+  <% if user_signed_in? %>
+      <%= "こんにちは、" %>
+      <%= link_to "#{current_user.name}さん",like_path(current_user) %>
+  <% elsif government_signed_in? %>
+      <%= link_to "#{current_government.name}",government_path(current_government) %>
+      <%= "でログインしています" %>
+  <% end %>
+</div>
 
-   <div class = "term">
-    <h2  class="search">条件から探す</h2>
-    <%= search_form_for @p, url: exams_search_path do |f| %>
-      <%= f.label :category_id_eq, '職種' %>
-      <%= f.collection_select :category_id_eq, Category.all, :id, :name,  include_blank: '指定なし' %>
-      <br>
-      <%= f.label :age_gteq, '年齢' %>
-      <% if user_signed_in? %>
-      <%= f.search_field :age_gteq, value: "#{@age}"  %> 
-      <% else %>
-      <%= f.search_field :age_gteq, placeholder: "ログインで自動入力" %>
-      <% end %>
-      <br>
-      <%= f.submit '検索' %>
-    <% end %>
-  </div>
- 
-  <div class = "area">
-    <h2  class="search">エリア・都道府県から探す</h2>
-    <%= render partial:"area"%>
-  </div>
+<div class = "search">
+  <h2  class="subheading">条件から探す</h2>
+  <%= render partial:"search"%>
+</div>
+
+<div class = "area">
+  <h2  class="subheading">エリア・都道府県から探す</h2>
+  <%= render partial:"area"%>
+</div>

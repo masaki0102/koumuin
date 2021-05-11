@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
 
-  get 'exams/search'
+  get 'exams/search_result'
   resources :exams do
     get 'likes', to: 'likes#checked'
   end
