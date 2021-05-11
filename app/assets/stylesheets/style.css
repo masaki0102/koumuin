@@ -20,7 +20,7 @@ body {
   color: #3b4043;
   position: relative;
   min-height: 100vh;
-  padding-bottom: 30px;
+  padding-bottom: 60px;
 }
 
 li {
@@ -223,6 +223,15 @@ img {
 
 .exam__list{
   margin-right: 20px;
+}
+
+
+.region:hover{
+  text-decoration: underline;
+}
+
+.region__inner {
+  padding-left:20px;
 }
 
 /* 試験詳細 */
