@@ -1,7 +1,8 @@
 class GovernmentsController < ApplicationController
 
   def index
-    @governments = Government.all
+    @governments = Government.where(prefecture_id: params[:prefecture_id])
+    @prefecture = Prefecture.find_by(id: params[:prefecture_id])   
   end
 
   def show

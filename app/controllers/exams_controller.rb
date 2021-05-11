@@ -51,7 +51,7 @@ class ExamsController < ApplicationController
   private
 
   def exam_params
-    params.require(:exam).permit(:category_id, :date, :age).merge(government_id: current_government.id)
+    params.require(:exam).permit(:category_id, :date, :age, :capacity).merge(government_id: current_government.id)
   end
 
   def set_exam
