@@ -15,16 +15,15 @@ function area_search() {
   const RegionChild6 = document.getElementById("area-6")
 
   RegionParent1.addEventListener('click', function() {
-      if (RegionChild1.getAttribute("style") == "display:none;") {
-        RegionChild1.removeAttribute("style", "display:none;")
-        RegionParent1.innerHTML =  "▼北海道・東北エリア"
-      }
-      else{
-       RegionChild1.setAttribute("style", "display:none;")
-       RegionParent1.innerHTML =  "▶︎北海道・東北エリア"
+    if (RegionChild1.getAttribute("style") == "display:none;") {
+      RegionChild1.removeAttribute("style", "display:none;")
+      RegionParent1.innerHTML =  "▼北海道・東北エリア"
+    }
+    else{
+      RegionChild1.setAttribute("style", "display:none;")
+      RegionParent1.innerHTML =  "▶︎北海道・東北エリア"
     }
   })
-
 
   RegionParent2.addEventListener('click', function() {
     if (RegionChild2.getAttribute("style") == "display:none;") {
@@ -36,6 +35,7 @@ function area_search() {
       RegionParent2.innerHTML =  "▶︎関東甲信越エリア"
     }
   })
+
   RegionParent3.addEventListener('click', function() {
     if (RegionChild3.getAttribute("style") == "display:none;") {
       RegionChild3.removeAttribute("style", "display:none;")
@@ -46,6 +46,7 @@ function area_search() {
       RegionParent3.innerHTML =  "▶︎東海・北陸エリア"
     }
   })
+
   RegionParent4.addEventListener('click', function() {
     if (RegionChild4.getAttribute("style") == "display:none;") {
       RegionChild4.removeAttribute("style", "display:none;")
@@ -56,6 +57,7 @@ function area_search() {
       RegionParent4.innerHTML =  "▶︎近畿エリア"
     }
   })
+
   RegionParent5.addEventListener('click', function() {
     if (RegionChild5.getAttribute("style") == "display:none;") {
       RegionChild5.removeAttribute("style", "display:none;")
@@ -66,6 +68,7 @@ function area_search() {
       RegionParent5.innerHTML =  "▶︎中国四国エリア"
     }
   })
+
   RegionParent6.addEventListener('click', function() {
     if (RegionChild6.getAttribute("style") == "display:none;") {
       RegionChild6.removeAttribute("style", "display:none;")
@@ -78,5 +81,4 @@ function area_search() {
   })
 
 }
-
 window.addEventListener('load', area_search)

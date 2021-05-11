@@ -1,17 +1,22 @@
-<h2 class="page-heading"><%= @prefecture.name %>に所在する自治体</h2 >
-<div class="governments">
-  <% @governments.each do |government| %>
-    <div class="government">
-      <a href="/governments/<%= government.id %>">
-      <div class="government__name">
-        <%= government.name %>
-      </div>
-      <div class="government__img">
-        <%= image_tag government.image.variant(gravity: :center, resize:"300x200^", crop:"300x200+0+0") if government.image.attached? %>
-      </div>
-      </a>
-    </div>
-  <% end %>
-</div>
-
+<% if @governments.exists? %>
+  <h2 class="page-heading"><%= @prefecture.name %>に所在する自治体</h2 >
+  <div class="governments">
+      <% @governments.each do |government| %>
+        <div class="government">
+          <a href="/governments/<%= government.id %>">
+          <div class="government__name">
+            <%= government.name %>
+          </div>
+          <div class="government__img">
+            <%= image_tag government.image.variant(gravity: :center, resize:"300x200^", crop:"300x200+0+0") if government.image.attached? %>
+          </div>
+          </a>
+        </div>
+      <% end %>
+  </div>
+<% else %>
+  <div class="governments">
+    <h2 class="page-heading"><%= @prefecture.name %>で登録されている自治体はありません</h2 >
+  </div>
+<% end %>
 
