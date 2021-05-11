@@ -2,6 +2,7 @@ class Exam < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   validates :date, presence: true
   validates :age, presence: true
+  validates :capacity, presence: true
   validates :category_id, numericality: { other_than: 1 }
 
   belongs_to :category

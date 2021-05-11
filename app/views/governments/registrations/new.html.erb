@@ -6,19 +6,23 @@
   <div class="field">
           <%= f.label :name, "自治体名" %><br />
           <%= f.text_field :name %>
-        </div>
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        写真
-        <span class="indispensable">必須</span>
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
+  </div>
+  <div class="field">
+   <%= f.label :prefecture_id, "自治体所在都道府県" %><br />
+   <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}) %>
+  </div>
+  <div class="img-upload">
+    <div class="weight-bold-text">
+      写真
+      <span class="indispensable">必須</span>
     </div>
+    <div class="click-upload">
+      <p>
+        クリックしてファイルをアップロード
+      </p>
+      <%= f.file_field :image, id:"item-image" %>
+    </div>
+  </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

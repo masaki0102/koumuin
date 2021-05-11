@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_03_20_104129) do
     t.integer "category_id", null: false
     t.date "date", null: false
     t.integer "age", null: false
+    t.string "capacity", null: false
     t.bigint "government_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_03_20_104129) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
+    t.integer "prefecture_id", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
