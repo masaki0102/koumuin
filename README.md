@@ -2,10 +2,11 @@
   公務員試験net
  
 # アプリケーション概要
-  公務員試験の情報が収集できるWebメディア
+  地方公務員を目指す人のためのWebメディア
+  試験の情報を収集することができる
  
 # URL
-  http://koumuin-shiken.net/
+  https://koumuin-shiken.net/
   http://54.150.146.25/
  
 # テスト用アカウント
@@ -15,13 +16,13 @@
 | Password | testman       | 
 
 # 利用方法
-- トップページ上の「ログイン・新規登録」ボタンよりテスト用アカウントでログインする
-- 条件より試験の情報を検索する
-- 試験の詳細情報が閲覧できる
-- 星マークをクリックしてお気に入りに登録できる
+- トップページ上の「ログイン・新規登録」または「ゲストログイン」ボタンよりログインする
+- 条件またはエリア・都道府県から試験の情報を検索することができる
+- 検索結果のページ上の星マークをクリックしてお気に入りに登録できる
+- 検索結果のページから遷移して試験の詳細情報を閲覧できる
   
 # 目指した課題解決
-- 公務員を目指す受験生が手軽に公務員試験の情報収集を行えるようにする
+- 公務員を目指す受験生が効率的に公務員試験の情報収集・管理を行えるようにする
 - 職員を募集する自治体が試験の概要を広く周知できるようにする
 
 # データベース設計
@@ -41,11 +42,12 @@
 
 ## governments テーブル
 
-| Column      | Type   | Options                   |
-| ----------- | ------ | ------------------------- |
-| name        | string | null: false               |
-| email       | string | null: false, unique: true |
-| password    | string | null: false               |
+| Column        | Type    | Options                   |
+| ------------- | ------- | ------------------------- |
+| name          | string  | null: false               |
+| prefecture_id | integer | null: false               |
+| email         | string  | null: false, unique: true |
+| password      | string  | null: false               |
 
 ### Association
 - has_many :exams
@@ -60,6 +62,7 @@
 | category_id | integer    | null: false                    |
 | date        | date       | null: false                    |
 | age         | integer    | null: false                    |
+| capacity    | string     | null: false                    |
 
 
 ### Association
