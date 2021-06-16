@@ -1,4 +1,7 @@
-<div class = "info">
+  <div class="info__img">
+  <%= image_tag @exam.government.image.variant(gravity: :center, resize:"150x100^", crop:"150x100+0+0")  %>
+  </div>
+  <div class = "info"> 
   <table class="table table-striped">
     <thead class="thead-light">
       <tr>
